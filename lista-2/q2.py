@@ -1,16 +1,11 @@
 def rm(n, d):
-    m = -1
     for _ in range(d):
-        for i in range(len(n)):
-            c = n[i]
-            if i == 0:
-                m = c
-                continue
-
-            if c < m: m = c
-
-        n.pop(n.index(m))
-
+        m = -1
+        for i in range(len(n)-1):
+            if n[i] <= n[i+1]:
+                m = i
+                break
+        n.pop(m)
     return n
 
 
