@@ -3,7 +3,6 @@ from heapq import heappush, heappop
 
 
 def shortest(graph, orig, dest):
-    visited = []
     distances = {node: inf if node != orig else 0 for node in graph}
     queue = []
     for k, v in distances.items():
@@ -11,7 +10,6 @@ def shortest(graph, orig, dest):
 
     while queue:
         weight, node = heappop(queue)
-        visited.append(node)
 
         for cn, cw in graph.get(node).items():
             new_weight = weight + cw
